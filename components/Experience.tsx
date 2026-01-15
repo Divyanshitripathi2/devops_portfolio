@@ -5,6 +5,10 @@ import { MILESTONES } from '../constants';
 import { Navigation, MapPin, Gauge, ShieldCheck, Flag, Compass } from 'lucide-react';
 
 const Experience: React.FC = () => {
+  const visibleMilestones = MILESTONES.filter(m => !m.hidden);
+  const totalMiles = visibleMilestones.reduce((acc, m) => acc + (m.description.length * 125), 0);
+  const displayMiles = Math.floor(totalMiles / 100) * 100;
+
   return (
     <div className="relative">
       {/* Header Info */}
@@ -22,7 +26,7 @@ const Experience: React.FC = () => {
         <div className="flex items-center gap-8 bg-slate-900/50 p-6 rounded-3xl border border-slate-800">
           <div className="text-center">
             <div className="text-xs font-black text-slate-500 uppercase tracking-widest mb-1">Total Distance</div>
-            <div className="text-3xl font-black text-white tabular-nums tracking-tighter">3,200+ <span className="text-blue-500 text-sm italic">Miles</span></div>
+            <div className="text-3xl font-black text-white tabular-nums tracking-tighter">{displayMiles.toLocaleString()}+ <span className="text-blue-500 text-sm italic">Miles</span></div>
           </div>
           <div className="h-10 w-px bg-slate-800" />
           <div className="text-center">
@@ -48,7 +52,7 @@ const Experience: React.FC = () => {
         <div className="absolute left-8 md:hidden top-0 bottom-0 w-1 bg-slate-800" />
 
         <div className="space-y-32">
-          {MILESTONES.map((milestone, idx) => (
+          {MILESTONES.filter(milestone => !milestone.hidden).map((milestone, idx) => (
             <motion.div
               key={milestone.company}
               initial={{ opacity: 0, scale: 0.95 }}
@@ -123,7 +127,7 @@ const Experience: React.FC = () => {
                   whileInView={{ opacity: 0.1, x: 0 }}
                   className="text-8xl font-black text-white pointer-events-none"
                 >
-                  {milestone.company.substring(0, 3)}
+                  {milestone.shortName || milestone.company.substring(0, 3)}
                 </motion.div>
                 <div className="flex gap-4 opacity-40">
                   <Gauge className="text-blue-500" />

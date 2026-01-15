@@ -7,7 +7,8 @@ export const MILESTONES: Milestone[] = [
     role: "Senior DevOps Engineer",
     period: "March 2026 – Present",
     location: "Mumbai, India (Remote)",
-    isCurrent: true,
+    isCurrent: false,
+    hidden: true,
     description: [
       "Leading the architectural transition to Zero-Trust Kubernetes for Seclore's core Data Privacy platform, securing petabytes of enterprise sensitive data.",
       "Architected a multi-region high-availability disaster recovery (DR) strategy across AWS and Azure, achieving 99.99% uptime for global clients.",
@@ -34,6 +35,7 @@ export const MILESTONES: Milestone[] = [
     role: "Automation Engineer",
     period: "Jul 2023 – Feb 2026",
     location: "Gurgaon, India",
+    shortName: "HCI",
     description: [
       "Accelerated software delivery by 20% through robust CI/CD implementation using Jenkins, Docker, and Helm.",
       "Reduced build times by 30% and deployment failures by 50%.",

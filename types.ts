@@ -6,6 +6,8 @@ export interface Milestone {
   location: string;
   description: string[];
   isCurrent?: boolean;
+  hidden?: boolean;
+  shortName?: string;
 }
 
 export interface Skill {
