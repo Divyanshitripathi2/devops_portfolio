@@ -54,14 +54,15 @@ const Contact: React.FC = () => {
             ))}
           </div>
 
-          <motion.button
+          <motion.a
+            href="mailto:divyanshitripathi.place@gmail.com"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             className="px-12 py-5 bg-white text-blue-700 rounded-2xl font-black text-lg shadow-xl hover:shadow-2xl transition-all inline-flex items-center gap-3"
           >
             Send a Transmission
             <Send size={20} />
-          </motion.button>
+          </motion.a>
         </div>
       </div>
     </div>

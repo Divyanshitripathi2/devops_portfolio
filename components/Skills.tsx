@@ -16,7 +16,7 @@ const Skills: React.FC = () => {
       <div className="mb-16">
         <h2 className="text-3xl font-bold mb-4 tracking-tight flex items-center gap-3 text-white">
           <Terminal className="text-blue-500" />
-          Technical Stack & Arsenal
+          Technical Stack 
         </h2>
         <p className="text-slate-400 max-w-2xl">
           Expertise across the full DevOps lifecycle, from infrastructure provisioning to continuous security and observability.

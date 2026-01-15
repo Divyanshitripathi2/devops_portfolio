@@ -9,6 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const resumeUrl = "https://drive.google.com/file/d/1X_D3dL40rTPrJwiF0meGzKPE13ToOvIg/view";
 
   const navLinks = [
     { name: 'Experience', id: 'experience' },
@@ -47,31 +48,31 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center text-white shadow-lg shadow-blue-500/20">
               <Terminal size={18} />
             </div>
-            <span className="font-bold text-lg tracking-tight text-white">
-              DT<span className="text-blue-500">.</span>DevOps
-            </span>
           </motion.div>
 
           {/* Desktop Nav */}
           <div className="hidden md:flex items-center space-x-8">
             {navLinks.map((link) => (
-              <button
+              <motion.button
                 key={link.id}
                 onClick={() => scrollTo(link.id)}
                 className={`text-sm font-medium transition-colors hover:text-blue-400 ${
                   activeSection === link.id ? 'text-blue-400' : 'text-slate-400'
                 }`}
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.95 }}
               >
                 {link.name}
-              </button>
+              </motion.button>
             ))}
-            <a 
-              href="#contact" 
+            <motion.a 
+              href={resumeUrl}
               className="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-md text-sm font-semibold transition-all shadow-lg shadow-blue-500/20"
-              onClick={(e) => { e.preventDefault(); scrollTo('contact'); }}
+              whileHover={{ y: -2 }}
+              whileTap={{ scale: 0.95 }}
             >
               Resume
-            </a>
+            </motion.a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -97,18 +98,23 @@ const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
           >
             <div className="px-4 pt-2 pb-6 space-y-1">
               {navLinks.map((link) => (
-                <button
+                <motion.button
                   key={link.id}
                   onClick={() => scrollTo(link.id)}
                   className="block w-full text-left px-3 py-4 text-base font-medium text-slate-400 hover:text-white hover:bg-slate-800 rounded-lg"
+                  whileTap={{ scale: 0.98 }}
                 >
                   {link.name}
-                </button>
+                </motion.button>
               ))}
               <div className="pt-4">
-                <button className="w-full bg-blue-600 text-white py-3 rounded-lg font-bold">
-                  Download Resume
-                </button>
+                <motion.a
+                  href={resumeUrl}
+                  className="w-full block text-center bg-blue-600 text-white py-3 rounded-lg font-bold"
+                  whileTap={{ scale: 0.98 }}
+                >
+                  View Resume
+                </motion.a>
               </div>
             </div>
           </motion.div>

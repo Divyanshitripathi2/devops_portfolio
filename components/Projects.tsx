@@ -136,39 +136,7 @@ const Projects: React.FC = () => {
         ))}
       </div>
 
-      {/* GitHub Activity Mockup */}
-      <motion.div 
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        className="mt-20 p-8 rounded-[2rem] border border-slate-800/50 bg-slate-900/20 backdrop-blur-sm"
-      >
-        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-          <div className="flex items-center gap-6">
-            <div className="w-16 h-16 rounded-full bg-slate-800 border border-slate-700 flex items-center justify-center">
-              <Github size={32} className="text-slate-400" />
-            </div>
-            <div>
-              <div className="text-xl font-bold text-white">Repository Health Score: 98%</div>
-              <div className="text-slate-500 text-sm">Automated analysis based on documentation coverage & CI pass rate.</div>
-            </div>
-          </div>
-          <div className="flex gap-1">
-            {/* contribution graph mockup */}
-            {Array.from({ length: 24 }).map((_, i) => (
-              <div 
-                key={i} 
-                className={`w-3 h-3 rounded-sm ${
-                  i % 3 === 0 ? 'bg-blue-500/80' : 
-                  i % 5 === 0 ? 'bg-blue-500/40' : 
-                  'bg-slate-800'
-                }`} 
-              />
-            ))}
-            <div className="ml-4 text-[10px] font-bold text-slate-600 uppercase tracking-widest self-center">Commit Activity</div>
-          </div>
-        </div>
-      </motion.div>
+
     </div>
   );
 };

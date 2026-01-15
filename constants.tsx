@@ -3,9 +3,9 @@ import { Milestone, Skill, Project } from './types';
 
 export const MILESTONES: Milestone[] = [
   {
-    company: "SECLORE",
+    company: "Seclore",
     role: "Senior DevOps Engineer",
-    period: "March 2025 – Present",
+    period: "March 2026 – Present",
     location: "Mumbai, India (Remote)",
     isCurrent: true,
     description: [
@@ -17,7 +17,7 @@ export const MILESTONES: Milestone[] = [
     ]
   },
   {
-    company: "M2P SOLUTIONS",
+    company: "M2P Solutions",
     role: "SDE 1 - Platform Engineer",
     period: "Feb 2025 – Feb 2025",
     location: "New Delhi, India",
@@ -30,9 +30,9 @@ export const MILESTONES: Milestone[] = [
     ]
   },
   {
-    company: "HUGHES COMMUNICATIONS INDIA",
+    company: "Hughes Communications India",
     role: "Automation Engineer",
-    period: "Jul 2023 – Feb 2025",
+    period: "Jul 2023 – Feb 2026",
     location: "Gurgaon, India",
     description: [
       "Accelerated software delivery by 20% through robust CI/CD implementation using Jenkins, Docker, and Helm.",
@@ -43,7 +43,7 @@ export const MILESTONES: Milestone[] = [
     ]
   },
   {
-    company: "OPSTREE SOLUTIONS",
+    company: "Opstree Solutions",
     role: "Cloud Engineer Intern",
     period: "Dec 2022 – June 2023",
     location: "Noida, India",
@@ -56,7 +56,9 @@ export const MILESTONES: Milestone[] = [
 ];
 
 export const SKILLS: Skill[] = [
-  { name: 'AWS/Azure/GCP', icon: 'Cloud', level: 95, category: 'Cloud' },
+  { name: 'AWS', icon: 'Cloud', level: 95, category: 'Cloud' },
+  { name: 'Azure', icon: 'Cloud', level: 92, category: 'Cloud' },
+  { name: 'GCP', icon: 'Cloud', level: 90, category: 'Cloud' },
   { name: 'Terraform', icon: 'FileCode', level: 92, category: 'Cloud' },
   { name: 'Kubernetes (K8s)', icon: 'Ship', level: 94, category: 'Containerization' },
   { name: 'Docker', icon: 'Box', level: 90, category: 'Containerization' },
