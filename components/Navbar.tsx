@@ -9,7 +9,7 @@ interface NavbarProps {
 
 const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const resumeUrl = "https://drive.google.com/file/d/1X_D3dL40rTPrJwiF0meGzKPE13ToOvIg/view";
+  const resumeUrl = "https://drive.google.com/file/d/1aDQJdE32WjGXuyrrixT6Vig0USNpiuPV/view?usp=sharing";
 
   const navLinks = [
     { name: 'Experience', id: 'experience' },

@@ -9,7 +9,7 @@ import { ChevronDown, Download, Calendar, BookUser } from 'lucide-react';
 
 const Hero: React.FC = () => {
 
-  const resumeUrl = "https://drive.google.com/file/d/1X_D3dL40rTPrJwiF0meGzKPE13ToOvIg/view";
+  const resumeUrl = "https://drive.google.com/file/d/1aDQJdE32WjGXuyrrixT6Vig0USNpiuPV/view?usp=sharing";
 
   const topmateUrl = "https://topmate.io/divyanshi_tripathi12";
 
@@ -215,7 +215,3 @@ const Hero: React.FC = () => {
 
 
 export default Hero;
-
-
-
-

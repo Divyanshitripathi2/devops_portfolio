@@ -1,10 +1,27 @@
 
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useRef, useState } from 'react';
+import { motion, useScroll, useTransform, useSpring, useMotionValueEvent } from 'framer-motion';
 import { MILESTONES } from '../constants';
 import { Navigation, MapPin, Gauge, ShieldCheck, Flag, Compass } from 'lucide-react';
 
 const Experience: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [isReversing, setIsReversing] = useState(false);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 80%", "end 50%"]
+  });
+  
+  const scrollY = useSpring(scrollYProgress, { stiffness: 100, damping: 30, restDelta: 0.001 });
+  const carY = useTransform(scrollY, [0, 1], ["0%", "96%"]);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious();
+    if (previous !== undefined && latest !== previous) {
+      setIsReversing(latest < previous);
+    }
+  });
+
   const visibleMilestones = MILESTONES.filter(m => !m.hidden);
   const totalMiles = visibleMilestones.reduce((acc, m) => acc + (m.description.length * 125), 0);
   const displayMiles = Math.floor(totalMiles / 100) * 100;
@@ -37,7 +54,7 @@ const Experience: React.FC = () => {
       </div>
 
       {/* The Road Container */}
-      <div className="relative pb-20">
+      <div className="relative pb-20" ref={containerRef}>
         {/* The Highway Line */}
         <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-24 -translate-x-1/2 bg-slate-900/30 overflow-hidden hidden md:block rounded-full border-x border-slate-800/50">
            {/* Dashed Center Line */}
@@ -46,6 +63,44 @@ const Experience: React.FC = () => {
                <div key={i} className="w-1.5 h-16 bg-slate-700/50 rounded-full animate-pulse" />
              ))}
            </div>
+
+           {/* Animated Car */}
+           <motion.div 
+             style={{ top: carY, x: "-50%", willChange: 'top, transform' }}
+             animate={{ rotate: isReversing ? 180 : 0 }}
+             transition={{ duration: 0.2 }}
+             className="absolute left-1/2 z-20"
+           >
+             <div className="relative">
+               <div className="absolute -inset-2 bg-blue-500/20 blur-xl rounded-full" />
+               
+               {/* Headlights */}
+               <svg className="absolute top-[88px] left-0 w-full h-48 z-0 opacity-60 pointer-events-none" viewBox="0 0 48 192" preserveAspectRatio="none">
+                 <defs>
+                   <linearGradient id="headlight-gradient" x1="0" y1="0" x2="0" y2="1">
+                     <stop offset="0%" stopColor="#60A5FA" stopOpacity="0.5" />
+                     <stop offset="100%" stopColor="#60A5FA" stopOpacity="0" />
+                   </linearGradient>
+                 </defs>
+                 <path d="M10 0 L -20 192 L 35 192 Z" fill="url(#headlight-gradient)" />
+                 <path d="M38 0 L 13 192 L 68 192 Z" fill="url(#headlight-gradient)" />
+               </svg>
+
+               {/* Custom Top-Down Car SVG */}
+               <svg width="48" height="96" viewBox="0 0 48 96" fill="none" xmlns="http://www.w3.org/2000/svg" className="relative z-10 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]">
+                 <path d="M8 12C8 5.37258 15.1634 0 24 0C32.8366 0 40 5.37258 40 12V84C40 90.6274 32.8366 96 24 96C15.1634 96 8 90.6274 8 84V12Z" fill="#0F172A" stroke="#3B82F6" strokeWidth="2"/>
+                 <rect x="14" y="28" width="20" height="40" rx="4" fill="#1E293B" stroke="#60A5FA" strokeWidth="1"/>
+                 <path d="M15 60H33L32 66H16L15 60Z" fill="#93C5FD" fillOpacity="0.8"/>
+                 <path d="M15 36H33L32 30H16L15 36Z" fill="#1E3A8A"/>
+                 <path d="M10 88L10 92" stroke="#60A5FA" strokeWidth="3" strokeLinecap="round"/>
+                 <path d="M38 88L38 92" stroke="#60A5FA" strokeWidth="3" strokeLinecap="round"/>
+                 <path d="M10 4L10 8" stroke="#EF4444" strokeWidth="3" strokeLinecap="round"/>
+                 <path d="M38 4L38 8" stroke="#EF4444" strokeWidth="3" strokeLinecap="round"/>
+                 <path d="M8 32H4V38H8" fill="#0F172A" stroke="#3B82F6" strokeWidth="1"/>
+                 <path d="M40 32H44V38H40" fill="#0F172A" stroke="#3B82F6" strokeWidth="1"/>
+               </svg>
+             </div>
+           </motion.div>
         </div>
 
         {/* Mobile Line */}
