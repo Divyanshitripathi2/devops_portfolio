@@ -85,7 +85,7 @@ const App: React.FC = () => {
           <a href="https://github.com/Divyanshitripathi2/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-blue-400 transition-colors">
             <Github size={20} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-blue-400 transition-colors">
+          <a href="https://www.linkedin.com/in/divyanshi-tripathi-b24bb4225/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-blue-400 transition-colors">
             <Linkedin size={20} />
           </a>
           <a href="mailto:divyanshitripathi.place@gmail.com" className="text-slate-500 hover:text-blue-400 transition-colors">

@@ -33,7 +33,7 @@ const Contact: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-12">
             {[
               { label: 'Email', value: 'divyanshitripathi.place@gmail.com', href: 'mailto:divyanshitripathi.place@gmail.com', Icon: Mail },
-              { label: 'LinkedIn', value: 'Divyanshi Tripathi', href: 'https://linkedin.com', Icon: Linkedin },
+              { label: 'LinkedIn', value: 'Divyanshi Tripathi', href: 'https://www.linkedin.com/in/divyanshi-tripathi-b24bb4225/', Icon: Linkedin },
               { label: 'GitHub', value: '@Divyanshitripathi2', href: 'https://github.com/Divyanshitripathi2/', Icon: Github }
             ].map((contact, idx) => (
               <motion.a
