@@ -31,9 +31,9 @@ const Experience: React.FC = () => {
       {/* Header Info */}
       <div className="mb-24 flex flex-col md:flex-row items-center justify-between gap-8 border-b border-slate-800 pb-12">
         <div className="max-w-xl">
-          <h2 className="text-4xl font-black mb-4 tracking-tight flex items-center gap-4 text-white uppercase">
-            <Navigation className="text-blue-500 -rotate-45" size={40} />
-            The Career <span className="text-blue-500">Highway</span>
+          <h2 className="text-2xl md:text-4xl font-black mb-4 tracking-tight flex items-center gap-3 md:gap-4 text-white uppercase">
+            <Navigation className="text-blue-500 -rotate-45 flex-shrink-0 w-8 h-8 md:w-10 md:h-10" />
+            <span>The Career <span className="text-blue-500">Highway</span></span>
           </h2>
           <p className="text-slate-400 text-lg">
             Navigating the complex landscape of infrastructure, from initial deployment to enterprise-scale automation.
@@ -56,7 +56,7 @@ const Experience: React.FC = () => {
       {/* The Road Container */}
       <div className="relative pb-20" ref={containerRef}>
         {/* The Highway Line */}
-        <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-24 -translate-x-1/2 bg-slate-900/30 overflow-hidden hidden md:block rounded-full border-x border-slate-800/50">
+        <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-16 md:w-24 -translate-x-1/2 bg-slate-900/30 overflow-hidden rounded-full border-x border-slate-800/50">
            {/* Dashed Center Line */}
            <div className="absolute inset-0 flex flex-col items-center justify-around gap-20 py-10">
              {Array.from({ length: 15 }).map((_, i) => (
@@ -103,9 +103,6 @@ const Experience: React.FC = () => {
            </motion.div>
         </div>
 
-        {/* Mobile Line */}
-        <div className="absolute left-8 md:hidden top-0 bottom-0 w-1 bg-slate-800" />
-
         <div className="space-y-32">
           {MILESTONES.filter(milestone => !milestone.hidden).map((milestone, idx) => (
             <motion.div
@@ -134,7 +131,7 @@ const Experience: React.FC = () => {
 
               {/* Content Panel */}
               <div className="ml-24 md:ml-0 md:w-[45%]">
-                <div className={`p-8 rounded-[2.5rem] bg-slate-900/40 border border-slate-800 backdrop-blur-xl relative group transition-all duration-500 hover:border-blue-500/30 ${
+                <div className={`p-8 rounded-[2.5rem] bg-slate-900/40 border border-slate-800 backdrop-blur-xl relative group transition-all duration-500 hover:border-[rgba(34,211,238,0.5)] hover:shadow-[0_0_30px_-10px_rgba(34,211,238,0.5)] ${
                   milestone.isCurrent ? 'ring-2 ring-blue-500/20' : ''
                 }`}>
                   <div className="mb-8">
